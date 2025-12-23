@@ -1,0 +1,15 @@
+[project]
+name = "Uap-data-teks"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "NightRunners02", email = "hafizgaming02@gmail.com"},
+]
+dependencies = ["pandas>=2.3.3", "scikit-learn>=1.7.2", "numpy>=2.2.6", "torch>=2.7.1", "transformers>=4.57.3", "datasets>=4.4.2", "matplotlib>=3.10.8", "seaborn>=0.13.2", "streamlit>=1.52.2"]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
