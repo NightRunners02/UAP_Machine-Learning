@@ -1,31 +1,20 @@
-Siap 👍
-Berikut **README.md versi rapi, akademis, dan “siap dinilai UAP”** untuk **3 model teks**:
-
-* **Neural Network Base (LSTM)**
-* **Pretrained DistilBERT**
-* **Pretrained BERT**
-
-Sudah saya susun **lengkap sesuai poin dosen** + gaya profesional GitHub.
 
 ---
 
-## 📄 `README.md`
+# 📩 Spam SMS Classification – UAP Pembelajaran Mesin
 
-```md
-# 📩 Spam SMS Classification  
-**UAP – Pembelajaran Mesin**
+Proyek ini merupakan **Ujian Akhir Praktikum (UAP)** mata kuliah **Pembelajaran Mesin**, yang berfokus pada **klasifikasi teks SMS spam dan ham** menggunakan **tiga pendekatan model**, yaitu:
 
-Proyek ini merupakan tugas **Ujian Akhir Praktikum (UAP)** mata kuliah **Pembelajaran Mesin** yang bertujuan untuk membangun, mengevaluasi, dan membandingkan **tiga model klasifikasi teks** pada kasus **Spam SMS Detection**, yaitu:
+1. **Neural Network Base (Non-Pretrained – LSTM)**
+2. **Pretrained Model 1 – DistilBERT**
+3. **Pretrained Model 2 – BERT**
 
-1. Neural Network Base (Non-Pretrained – LSTM)
-2. Pretrained Model 1 – DistilBERT
-3. Pretrained Model 2 – BERT
-
-Selain pelatihan dan evaluasi model, proyek ini juga dilengkapi dengan **dashboard interaktif berbasis Streamlit**.
+Selain pelatihan dan evaluasi model, proyek ini juga dilengkapi dengan **dashboard interaktif menggunakan Streamlit** untuk melakukan inferensi dan analisis performa model.
 
 ---
 
-## 👨‍🎓 Identitas Mahasiswa
+## 👨‍🎓 Informasi Mahasiswa
+
 - **Nama** : Khairy Zhafran H. KAatella  
 - **NIM** : 202210370311439  
 - **Mata Kuliah** : Pembelajaran Mesin  
@@ -33,23 +22,10 @@ Selain pelatihan dan evaluasi model, proyek ini juga dilengkapi dengan **dashboa
 
 ---
 
-## 📌 Deskripsi Proyek
-Spam SMS merupakan salah satu permasalahan klasik dalam text classification.  
-Proyek ini mengimplementasikan:
-- **Model non-pretrained** (dibangun dari nol)
-- **Model pretrained (transfer learning)** berbasis Transformer  
-
-Tujuan utama:
-- Membandingkan performa **akurasi dan stabilitas**
-- Mengamati perbedaan pendekatan klasik vs pretrained
-- Menyediakan sistem prediksi berbasis web
-
----
-
 ## 📂 Struktur Repository
-```
 
-Praktikum_Text_UAP/
+```
+📦 Praktikum-Text-UAP
 │
 ├── data/
 │   └── spam.csv
@@ -61,12 +37,12 @@ Praktikum_Text_UAP/
 ├── model_distilbert/
 │   ├── config.json
 │   ├── model.safetensors
-│   └── tokenizer files
+│   └── tokenizer.json
 │
 ├── model_bert/
 │   ├── config.json
 │   ├── model.safetensors
-│   └── tokenizer files
+│   └── tokenizer.json
 │
 ├── train_lstm.py
 ├── train_distilbert.py
@@ -77,6 +53,7 @@ Praktikum_Text_UAP/
 ├── evaluate_bert.py
 │
 ├── app.py
+├── requirements.txt
 ├── pyproject.toml
 └── README.md
 
@@ -85,149 +62,178 @@ Praktikum_Text_UAP/
 ---
 
 ## 📊 Dataset
-Dataset yang digunakan adalah **SMS Spam Collection Dataset** dari Kaggle.
 
-- **Sumber** :  
-  https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
-- **Jumlah data** : 5.574 SMS
-- **Kelas** :
+Proyek ini menggunakan dataset **SMS Spam Collection Dataset** dari Kaggle.
+
+- **Sumber Dataset**  
+  🔗 https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset  
+
+- **Jumlah Data** : 5.574 SMS  
+- **Label** :
   - `ham` → SMS normal
   - `spam` → SMS spam
 
 ### Contoh Data
-| Label | Text |
+
+| Label | Teks |
 |------|------|
-| ham | Ok lar... Joking wif u oni |
-| spam | Free entry in 2 a wkly comp... |
+| ham | Go until jurong point, crazy.. Available only in bugis |
+| spam | Free entry in a weekly competition to win FA Cup tickets |
 
 ---
 
-## 🔄 Preprocessing
+## ⚙️ Preprocessing Data
+
 Langkah preprocessing yang dilakukan:
-- Parsing manual CSV (delimiter & encoding)
-- Lowercasing
-- Tokenisasi teks
-- Padding & truncation (untuk model neural & transformer)
+
 - Encoding label (`ham = 0`, `spam = 1`)
+- Pembersihan teks dasar
+- Tokenisasi:
+  - **TF-IDF** untuk model NN Base
+  - **Tokenizer Transformer** untuk DistilBERT dan BERT
+- Padding & truncation (max length = 128)
 
 ---
 
 ## 🧠 Model yang Digunakan
 
 ### 1️⃣ Neural Network Base (Non-Pretrained – LSTM)
+
 - Embedding Layer
 - LSTM Layer
 - Fully Connected Layer
-- Loss: CrossEntropyLoss
-- Optimizer: Adam
+- Sigmoid Output
+- Dilatih dari awal tanpa pretrained weight
 
-📌 Model ini **dilatih dari awal tanpa bobot pretrained**.
+**Kelebihan**:
+- Lebih ringan
+- Mudah dipahami
+- Cocok untuk baseline
 
 ---
 
 ### 2️⃣ Pretrained Model 1 – DistilBERT
-- Model: `distilbert-base-uncased`
-- Transfer learning
-- Fine-tuning untuk klasifikasi spam
-- Lebih ringan & cepat dibanding BERT
+
+- Model Transformer ringan
+- Transfer learning dari `distilbert-base-uncased`
+- Fine-tuning pada dataset SMS Spam
+
+**Kelebihan**:
+- Lebih cepat dari BERT
+- Akurasi tinggi
+- Lebih efisien untuk deployment
 
 ---
 
 ### 3️⃣ Pretrained Model 2 – BERT
-- Model: `bert-base-uncased`
-- Transfer learning
-- Representasi teks lebih kaya
-- Akurasi terbaik
+
+- Model Transformer penuh
+- Transfer learning dari `bert-base-uncased`
+- Representasi konteks teks lebih kaya
+
+**Kelebihan**:
+- Akurasi tertinggi
+- Pemahaman konteks lebih baik
 
 ---
 
 ## 📈 Evaluasi Model
-Setiap model dievaluasi menggunakan:
+
+Evaluasi dilakukan menggunakan:
 
 - **Classification Report**
   - Accuracy
   - Precision
   - Recall
-  - F1-score
+  - F1-Score
 - **Confusion Matrix**
-- **Grafik Loss & Accuracy**
+- **Grafik Loss dan Accuracy**
 
-### Ringkasan Hasil (Contoh)
+### Contoh Metrik Evaluasi
+
 | Model | Accuracy |
-|-----|----------|
-| LSTM (Base) | ~87% |
-| DistilBERT | ~95% |
+|------|----------|
+| LSTM (NN Base) | ~87% |
+| DistilBERT | ~96% |
 | BERT | ~97% |
 
-📌 Model pretrained menunjukkan performa lebih stabil dan akurat.
+📌 *Model pretrained menunjukkan performa yang lebih baik dibandingkan model non-pretrained.*
 
 ---
 
 ## 📊 Visualisasi
-- Grafik training **Loss vs Epoch**
+
+- Grafik **Training Loss vs Epoch**
 - Grafik **Accuracy vs Epoch**
 - Confusion Matrix ditampilkan di dashboard Streamlit
 
 ---
 
-## 🌐 Dashboard Streamlit
-Dashboard menyediakan:
-- Input teks SMS
-- Pilihan model (LSTM / DistilBERT / BERT)
-- Prediksi real-time
-- Tampilan Confusion Matrix
-- Classification Report
-- Total jumlah data
-- Profil mahasiswa
+## 🖥️ Dashboard Streamlit
 
-### Menjalankan Dashboard
+Dashboard menyediakan fitur:
+
+- Pilih model (LSTM / DistilBERT / BERT)
+- Input teks SMS
+- Prediksi real-time
+- Tampilan hasil dengan:
+  - 🟥 Background merah untuk **SPAM**
+  - 🟩 Background hijau untuk **HAM**
+- Confusion Matrix & Classification Report
+- Informasi jumlah total data
+
+---
+
+## ▶️ Cara Menjalankan Project (Local)
+
+### 1️⃣ Clone Repository
 ```bash
-pdm install
-pdm run streamlit run app.py
+git clone https://github.com/username/Praktikum-Text-UAP.git
+cd Praktikum-Text-UAP
 ````
 
----
+### 2️⃣ Install Dependency
 
-## ⚙️ Teknologi yang Digunakan
+```bash
+pip install -r requirements.txt
+```
 
-* Python 3.12
-* PyTorch
-* Transformers (HuggingFace)
-* Scikit-learn
-* Streamlit
-* Pandas, NumPy, Matplotlib
+atau menggunakan **PDM**:
 
----
+```bash
+pdm install
+```
 
-## 🚀 Kesimpulan
+### 3️⃣ Jalankan Dashboard
 
-* Model **pretrained (BERT & DistilBERT)** unggul secara performa
-* **LSTM** tetap relevan sebagai baseline
-* Transfer learning terbukti efektif untuk text classification
-* Dashboard memudahkan analisis dan demonstrasi hasil
-
----
-
-## 🔗 Live Demo (Opsional)
-
-*(Belum tersedia)*
-
----
-
-## 📜 Lisensi
-
-Proyek ini digunakan untuk keperluan akademik dan pembelajaran.
-
+```bash
+streamlit run app.py
 ```
 
 ---
 
-## ✅ Kalau kamu mau, aku bisa:
-- 🔥 Tambahin **badge GitHub (Python, PyTorch, Streamlit)**
-- 📊 Masukin **hasil evaluasi asli kamu**
-- 🎨 Bikin versi **README ultra-visual (ikon + banner)**
-- 🧾 Rapikan agar **100% sesuai rubrik dosen**
+## 🌐 Live Demo (Optional)
 
-Tinggal bilang:  
-👉 **“upgrade README”** atau **“tambah badge & grafik”**
+🔗 *Belum tersedia / Opsional*
+
+---
+
+## 📝 Kesimpulan
+
+* Model **pretrained (DistilBERT & BERT)** memberikan performa terbaik
+* **LSTM** tetap layak sebagai baseline
+* Streamlit mempermudah analisis dan presentasi model
+* Transfer learning sangat efektif untuk klasifikasi teks
+
+---
+
+## 📌 Catatan
+
+Proyek ini dibuat untuk keperluan **akademik** dan **pembelajaran**, bukan untuk penggunaan komersial.
+
+---
+
+⭐ Jangan lupa beri **star** jika repository ini membantu!
+
 ```
+
