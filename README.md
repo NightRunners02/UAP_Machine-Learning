@@ -179,6 +179,63 @@ Evaluasi dilakukan menggunakan:
 - Grafik **Training Loss vs Epoch**
 - Grafik **Accuracy vs Epoch**
 - Confusion Matrix ditampilkan di dashboard Streamlit
+## 📈 Hasil Evaluasi Model
+
+### 🔹 Perbandingan Akurasi 3 Model
+
+![Perbandingan Akurasi](gambar_figure/Perbandingan%20Akurasi%203%20Model.png)
+
+Grafik menunjukkan bahwa **BERT memiliki performa terbaik**, diikuti oleh **DistilBERT**, sedangkan **LSTM** digunakan sebagai baseline non-pretrained.
+
+---
+
+## 🧪 Evaluasi Per Model
+
+### 1️⃣ LSTM (Non-Pretrained)
+
+**Training Loss & Accuracy**
+
+![Training LSTM](gambar_figure/Training%20Loss%20dan%20Accuracy%20LSTM.png)
+
+Model LSTM menunjukkan proses pembelajaran yang stabil, namun performanya masih terbatas dibanding model pretrained karena keterbatasan pemahaman konteks bahasa.
+
+**Confusion Matrix**
+
+![Confusion Matrix LSTM](gambar_figure/Confusion%20Matrix%20-%20LSTM.png)
+
+Masih terdapat kesalahan klasifikasi, terutama pada data spam yang memiliki struktur bahasa mirip pesan normal.
+
+---
+
+### 2️⃣ DistilBERT
+
+**Training Loss & Accuracy**
+
+![Training DistilBERT](gambar_figure/Training%20Loss%20dan%20Accuracy%20Distilbert.png)
+
+Kurva training menunjukkan konvergensi yang baik dan stabil. DistilBERT mampu belajar lebih cepat dengan performa yang mendekati BERT.
+
+**Confusion Matrix**
+
+![Confusion Matrix DistilBERT](gambar_figure/Confusion%20Matrix%20-%20Distilbert.png)
+
+Mayoritas prediksi berada pada diagonal utama, menandakan performa klasifikasi yang kuat dan konsisten.
+
+---
+
+### 3️⃣ BERT
+
+**Training Loss & Accuracy**
+
+![Training BERT](gambar_figure/Training%20Loss%20dan%20Accuracy%20Bert.png)
+
+BERT menunjukkan akurasi tertinggi dengan loss paling rendah, menandakan pemahaman konteks teks yang sangat baik.
+
+**Confusion Matrix**
+
+![Confusion Matrix BERT](gambar_figure/Confusion%20Matrix%20-%20Bert.png)
+
+Hampir seluruh prediksi berada pada diagonal utama, menunjukkan performa klasifikasi terbaik di antara ketiga model.
 
 ---
 
@@ -286,5 +343,6 @@ Proyek ini dibuat untuk keperluan **akademik** dan **pembelajaran**, bukan untuk
 </p>
 </div>
 </details>
+
 
 
