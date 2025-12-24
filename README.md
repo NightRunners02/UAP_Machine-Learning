@@ -251,7 +251,6 @@ Dashboard menyediakan fitur:
 - Tampilan hasil dengan:
   - 🟥 Background merah untuk **SPAM**
   - 🟩 Background hijau untuk **HAM**
-- Confusion Matrix & Classification Report
 - Informasi jumlah total data
 
 ---
