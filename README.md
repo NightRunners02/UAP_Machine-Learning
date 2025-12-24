@@ -178,7 +178,9 @@ Evaluasi dilakukan menggunakan:
 
 - Grafik **Training Loss vs Epoch**
 - Grafik **Accuracy vs Epoch**
-- Confusion Matrix ditampilkan di dashboard Streamlit
+
+---
+
 ## 📈 Hasil Evaluasi Model
 
 ### 🔹 Perbandingan Akurasi 3 Model
