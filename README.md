@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python">
+  <img src="https://img.shields.io/badge/Framework-PyTorch-red?logo=pytorch">
+  <img src="https://img.shields.io/badge/Framework-Transformers-yellow?logo=huggingface">
+  <img src="https://img.shields.io/badge/Web-Streamlit-ff4b4b?logo=streamlit">
+  <img src="https://img.shields.io/badge/Status-Completed-success">
+</p>
 
 ---
 
