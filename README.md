@@ -235,5 +235,4 @@ Proyek ini dibuat untuk keperluan **akademik** dan **pembelajaran**, bukan untuk
 
 ⭐ Jangan lupa beri **star** jika repository ini membantu!
 
-```
 
