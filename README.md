@@ -1,4 +1,7 @@
+# 📩 Spam SMS Classification – UAP Pembelajaran Mesin
+
 <p align="center">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg"> <br>
   <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python">
   <img src="https://img.shields.io/badge/Framework-PyTorch-red?logo=pytorch">
   <img src="https://img.shields.io/badge/Framework-Transformers-yellow?logo=huggingface">
@@ -7,8 +10,6 @@
 </p>
 
 ---
-
-# 📩 Spam SMS Classification – UAP Pembelajaran Mesin
 
 Proyek ini merupakan **Ujian Akhir Praktikum (UAP)** mata kuliah **Pembelajaran Mesin**, yang berfokus pada **klasifikasi teks SMS spam dan ham** menggunakan **tiga pendekatan model**, yaitu:
 
