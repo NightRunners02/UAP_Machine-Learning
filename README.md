@@ -38,6 +38,11 @@ Selain pelatihan dan evaluasi model, proyek ini juga dilengkapi dengan **dashboa
 ├── data/
 │   └── spam.csv
 │
+├── file_ipynb/
+│  ├── Model_Bert_UAP_Machine_Learning.ipynb
+│  ├── Model_Distilbert_UAP_Machine_Learning.ipynb
+│  └── Model_LSTM_UAP_Machine_Learning.ipynb
+│   
 ├── model_nn_base/
 │   ├── model_lstm.pth
 │   └── tokenizer.pkl
