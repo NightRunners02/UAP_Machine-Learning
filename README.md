@@ -23,7 +23,7 @@ Selain pelatihan dan evaluasi model, proyek ini juga dilengkapi dengan **dashboa
 
 ## 👨‍🎓 Informasi Mahasiswa
 
-- **Nama** : Khairy Zhafran H. KAatella  
+- **Nama** : Khairy Zhafran H. Kastella  
 - **NIM** : 202210370311439  
 - **Mata Kuliah** : Pembelajaran Mesin  
 - **Universitas** : Universitas Negeri Malang  
